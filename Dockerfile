@@ -16,7 +16,7 @@ RUN pnpm install --frozen-lockfile
 # Copy the JSON server files to the working directory
 COPY . .
 
-USER node
+EXPOSE 3000
 
 # Start the JSON server
 CMD ["pnpm", "start"]
