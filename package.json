@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "update": "node update_data.js",
-    "start": "json-server --watch db.json --port 3000"
+    "start": "json-server db.json --port 3000"
   },
   "author": "qtv10291 + Loc Q. Huynh",
   "license": "MIT",
