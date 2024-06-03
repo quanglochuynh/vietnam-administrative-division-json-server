@@ -14,6 +14,9 @@ dependencies:
   mongodb:
     specifier: ^6.7.0
     version: 6.7.0
+  typescript:
+    specifier: ^5.4.5
+    version: 5.4.5
 
 devDependencies:
   '@types/express':
@@ -28,9 +31,6 @@ devDependencies:
   ts-node-dev:
     specifier: ^2.0.0
     version: 2.0.0(@types/node@20.14.0)(typescript@5.4.5)
-  typescript:
-    specifier: ^5.4.5
-    version: 5.4.5
 
 packages:
 
@@ -1017,7 +1017,6 @@ packages:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
