@@ -1,6 +1,6 @@
-import { dotenvConfig } from "../configs/dotenv.config";
+import { dotenvConfig } from "../src/configs/dotenv.config";
 dotenvConfig();
-import { connectMongoDB, db } from "../configs/mongo.config";
+import { connectMongoDB, db } from "../src/configs/mongo.config";
 import { readFileSync } from "fs";
 
 async function main() {

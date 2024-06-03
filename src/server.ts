@@ -2,7 +2,12 @@
 import { dotenvConfig } from "./configs/dotenv.config";
 dotenvConfig();
 import express from "express";
-import { connectMongoDB } from "./configs/mongo.config";
+import {
+  communeCollection,
+  connectMongoDB,
+  districtCollection,
+  provinceCollection,
+} from "./configs/mongo.config";
 
 connectMongoDB();
 
@@ -15,11 +20,63 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/provinces", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Get all provinces",
-  });
+app.get("/provinces", (_, res) => {
+  provinceCollection
+    .find({})
+    .toArray()
+    .then((provinces) => {
+      res.status(200).json(provinces);
+    })
+    .catch(() => {
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+      });
+    });
+});
+
+app.get("/districts", (req, res) => {
+  const { idProvince } = req.query;
+  if (!idProvince) {
+    return res.status(400).json({
+      success: false,
+      message: "Missing provinceId",
+    });
+  }
+  districtCollection
+    .find({ idProvince: String(idProvince) })
+    .toArray()
+    .then((districts) => {
+      res.status(200).json(districts);
+    })
+    .catch(() => {
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+      });
+    });
+});
+
+app.get("/communes", (req, res) => {
+  const { idDistrict } = req.query;
+  if (!idDistrict) {
+    return res.status(400).json({
+      success: false,
+      message: "Missing districtId",
+    });
+  }
+  communeCollection
+    .find({ idDistrict: String(idDistrict) })
+    .toArray()
+    .then((communes) => {
+      res.status(200).json(communes);
+    })
+    .catch(() => {
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+      });
+    });
 });
 
 app.get("*", (req, res) => {

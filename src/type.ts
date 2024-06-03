@@ -2,20 +2,20 @@ import { ObjectId } from "mongodb";
 
 export type Province = {
   _id: ObjectId;
-  idProvince: number;
+  idProvince: string;
   name: string;
 };
 
 export type District = {
   _id: ObjectId;
-  idDistrict: number;
-  idProvince: number;
+  idDistrict: string;
+  idProvince: string;
   name: string;
 };
 
 export type Commune = {
   _id: ObjectId;
-  idCommune: number;
-  idDistrict: number;
+  idCommune: string;
+  idDistrict: string;
   name: string;
 };

@@ -3,10 +3,10 @@ import { Province, District, Commune } from "../type";
 
 const client = new MongoClient(String(process.env.MONGODB_URI));
 
-export let db: Db | null = null;
-export let provinceCollection: Collection<Province> | null = null;
-export let districtCollection: Collection<District> | null = null;
-export let communeCollection: Collection<Commune> | null = null;
+export let db: Db;
+export let provinceCollection: Collection<Province>;
+export let districtCollection: Collection<District>;
+export let communeCollection: Collection<Commune>;
 
 export async function connectMongoDB() {
   try {

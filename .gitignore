@@ -27,3 +27,8 @@ yarn-error.log*
 update_data.js
 distrct.json
 commune.json
+
+# local env
+.env
+
+dist
