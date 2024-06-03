@@ -1,22 +1,23 @@
-# Use a lightweight Node.js image as the base
+# Base image
 FROM node:18-alpine
 
-# Set the working directory inside the container
+# Working directory
 WORKDIR /app
 
-# install pnpm
+# Install pnpm
 RUN npm install -g pnpm
 
-# Copy package.json and pnpm-lock.yml to the working directory
+# Copy package.json and lockfile
 COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --production
 
-# Copy the JSON server files to the working directory
+# Copy the rest of the project files
 COPY . .
 
-EXPOSE 3000
+# Expose the port
+EXPOSE 2000
 
 # Start the JSON server
 CMD ["pnpm", "start"]
