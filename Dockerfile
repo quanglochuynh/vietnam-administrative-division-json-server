@@ -16,8 +16,11 @@ RUN pnpm install --production --frozen-lockfile
 # Copy the rest of the project files
 COPY . .
 
+# Build the project
+RUN pnpm build
+
 # Expose the port
-EXPOSE 2000
+EXPOSE 3000
 
 # Start the JSON server
 CMD ["pnpm", "start"]

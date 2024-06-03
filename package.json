@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/server.js --port 3000",
     "update-db": "ts-node-esm scripts/init-db.ts",
     "type-check": "tsc --noEmit"
   },
